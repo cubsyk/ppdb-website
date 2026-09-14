@@ -1,0 +1,9 @@
+# Blokir akses langsung browser ke folder uploads
+# PHP readfile() via file.php tetap bisa baca filesystem
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteRule .* - [F,L]
+</IfModule>
+<IfModule !mod_rewrite.c>
+    Deny from all
+</IfModule>
