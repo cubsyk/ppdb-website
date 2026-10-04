@@ -376,6 +376,8 @@ $base = $cssBase ?? '';
    ========================================================= */
 
 .ppdb-navbar {
+    position: relative;
+    z-index: 1000;
     border-bottom: 1px solid #E4DDCE;
     background: rgba(255,253,248,.97);
     box-shadow: 0 4px 18px rgba(47,69,56,.035);
@@ -618,30 +620,56 @@ $base = $cssBase ?? '';
     .ppdb-nav-toggle {
         display: block;
         flex-shrink: 0;
+        position: relative;
+        z-index: 1002;
     }
 
     .ppdb-navbar-inner {
         min-height: 68px;
+        position: relative;
     }
 
     .ppdb-nav-menu {
         position: absolute;
-        top: 99%;
-        left: 15px;
-        right: 15px;
-        display: none;
+        top: calc(100% + 8px);
+        left: 0;
+        right: 0;
+        z-index: 1001;
+
+        display: flex;
         flex-direction: column;
         align-items: stretch;
         gap: 4px;
+
         padding: 10px;
         border: 1px solid #DDD5C4;
         border-radius: 15px;
         background: #FFFDF8;
         box-shadow: 0 15px 35px rgba(47,69,56,.12);
+
+        /* Animasi */
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+        transform: translateY(-10px) scale(.98);
+        transform-origin: top center;
+
+        transition:
+            opacity .22s ease,
+            transform .22s ease,
+            visibility 0s linear .22s;
     }
 
     .ppdb-nav-menu.is-open {
-        display: flex;
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+        transform: translateY(0) scale(1);
+
+        transition:
+            opacity .22s ease,
+            transform .22s ease,
+            visibility 0s linear 0s;
     }
 
     .ppdb-nav-menu > a {
@@ -707,46 +735,43 @@ $base = $cssBase ?? '';
 
 
 <script>
-document.addEventListener('DOMContentLoaded', function () {
+(function () {
+    function initMobileNav() {
+        const toggle = document.querySelector('[data-nav-toggle]');
+        const menu = document.querySelector('[data-nav-menu]');
 
-    const toggle = document.querySelector('[data-nav-toggle]');
-    const menu = document.querySelector('[data-nav-menu]');
+        if (!toggle || !menu) return;
 
-    if (!toggle || !menu) {
-        return;
-    }
+        toggle.addEventListener('click', function (event) {
+            event.preventDefault();
+            event.stopPropagation();
 
-    toggle.addEventListener('click', function () {
+            const isOpen = menu.classList.contains('is-open');
 
-        const isOpen = menu.classList.toggle('is-open');
-
-        toggle.classList.toggle('is-open', isOpen);
-
-        toggle.setAttribute(
-            'aria-expanded',
-            isOpen ? 'true' : 'false'
-        );
-
-    });
-
-    document.addEventListener('click', function (event) {
-
-        if (
-            !menu.contains(event.target) &&
-            !toggle.contains(event.target)
-        ) {
-
-            menu.classList.remove('is-open');
-            toggle.classList.remove('is-open');
+            menu.classList.toggle('is-open', !isOpen);
+            toggle.classList.toggle('is-open', !isOpen);
 
             toggle.setAttribute(
                 'aria-expanded',
-                'false'
+                !isOpen ? 'true' : 'false'
             );
+        });
 
-        }
+        menu.addEventListener('click', function (event) {
+            event.stopPropagation();
+        });
 
-    });
+        document.addEventListener('click', function () {
+            menu.classList.remove('is-open');
+            toggle.classList.remove('is-open');
+            toggle.setAttribute('aria-expanded', 'false');
+        });
+    }
 
-});
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initMobileNav);
+    } else {
+        initMobileNav();
+    }
+})();
 </script>
