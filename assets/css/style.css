@@ -1063,3 +1063,478 @@ hr{
         transform:none !important;
     }
 }
+
+html,
+body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+img,
+svg,
+video,
+iframe {
+    max-width: 100%;
+}
+
+body {
+    width: 100%;
+    margin: 0;
+}
+
+/* =========================================================
+   FINAL MOBILE OVERFLOW FIX
+   PPDB TK HARAPAN BUNDA
+   ========================================================= */
+
+/* ---------- GLOBAL ---------- */
+
+html {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+body {
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+/* Jangan biarkan elemen melebar keluar layar */
+img,
+svg,
+video,
+iframe {
+    max-width: 100%;
+}
+
+
+/* =========================================================
+   CONTAINER
+   ========================================================= */
+
+.container {
+    width: min(1100px, calc(100% - 32px));
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/* =========================================================
+   PPDB HOME
+   ========================================================= */
+
+.ppdb-home {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow-x: clip;
+}
+
+.ppdb-home__hero {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    overflow: hidden;
+}
+
+.ppdb-home__hero-grid {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+}
+
+.ppdb-home__hero-content,
+.ppdb-home__info {
+    min-width: 0;
+    max-width: 100%;
+}
+
+
+/* =========================================================
+   HERO TEXT
+   ========================================================= */
+
+.ppdb-home__hero h1 {
+    max-width: 100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+.ppdb-home__hero h1 span {
+    max-width: 100%;
+}
+
+.ppdb-home__lead {
+    max-width: 650px;
+    width: 100%;
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+}
+
+
+/* =========================================================
+   BUTTONS
+   ========================================================= */
+
+.ppdb-home__actions {
+    max-width: 100%;
+    min-width: 0;
+}
+
+.ppdb-home__btn {
+    max-width: 100%;
+    min-width: 0;
+}
+
+
+/* =========================================================
+   DECORATION
+   ========================================================= */
+
+.ppdb-home__hero::before,
+.ppdb-home__hero::after {
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   NAVBAR MOBILE
+   ========================================================= */
+
+.ppdb-navbar,
+.ppdb-navbar-inner {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+}
+
+.ppdb-navbar-inner {
+    overflow: visible;
+}
+
+.ppdb-brand {
+    min-width: 0;
+    max-width: 100%;
+}
+
+.ppdb-brand-text {
+    min-width: 0;
+    max-width: 100%;
+}
+
+.ppdb-brand-text strong,
+.ppdb-brand-text small {
+    overflow-wrap: break-word;
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 800px) {
+
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    .container {
+        width: calc(100% - 32px);
+        max-width: 100%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    /* HERO */
+
+    .ppdb-home__hero {
+        width: 100%;
+        max-width: 100%;
+        padding: 50px 0;
+        overflow: hidden;
+    }
+
+    .ppdb-home__hero-grid {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 30px;
+    }
+
+    .ppdb-home__hero-content,
+    .ppdb-home__info {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    /* JUDUL */
+
+    .ppdb-home__hero h1 {
+        width: 100%;
+        max-width: 100%;
+        font-size: clamp(34px, 9vw, 46px);
+        line-height: 1.08;
+        overflow-wrap: break-word;
+        word-break: normal;
+    }
+
+    .ppdb-home__hero h1 span {
+        display: inline;
+        max-width: 100%;
+    }
+
+    /* DESKRIPSI */
+
+    .ppdb-home__lead {
+        width: 100%;
+        max-width: 100%;
+        font-size: 15px;
+        overflow-wrap: break-word;
+    }
+
+    /* BUTTON */
+
+    .ppdb-home__actions {
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .ppdb-home__btn {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    /* INFO CARD */
+
+    .ppdb-home__info {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        overflow: hidden;
+    }
+
+    /* FEATURES */
+
+    .ppdb-home__features {
+        width: 100%;
+        max-width: 100%;
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    /* CTA */
+
+    .ppdb-home__cta {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+        align-items: flex-start;
+        flex-direction: column;
+        overflow: hidden;
+    }
+
+    .ppdb-home__cta h2,
+    .ppdb-home__cta p {
+        max-width: 100%;
+        overflow-wrap: break-word;
+    }
+
+    /* NAVBAR */
+
+    .ppdb-nav-menu {
+        max-width: calc(100vw - 32px);
+        min-width: 0;
+    }
+
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+   ========================================================= */
+
+@media (max-width: 520px) {
+
+    html,
+    body {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    .container {
+        width: calc(100% - 24px);
+        max-width: 100%;
+    }
+
+    .ppdb-home {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: hidden;
+    }
+
+    .ppdb-home__hero {
+        width: 100%;
+        max-width: 100%;
+        padding: 44px 0;
+        overflow: hidden;
+    }
+
+    .ppdb-home__hero-grid {
+        width: 100%;
+        max-width: 100%;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 24px;
+    }
+
+    .ppdb-home__hero h1 {
+        width: 100%;
+        max-width: 100%;
+        font-size: 36px;
+        line-height: 1.08;
+    }
+
+    .ppdb-home__lead {
+        width: 100%;
+        max-width: 100%;
+        font-size: 15px;
+    }
+
+    .ppdb-home__actions {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .ppdb-home__btn {
+        width: 100%;
+        max-width: 100%;
+    }
+
+    .ppdb-home__info {
+        width: 100%;
+        max-width: 100%;
+        padding: 23px;
+    }
+
+    .ppdb-home__section {
+        width: 100%;
+        max-width: 100%;
+        padding: 48px 0;
+    }
+
+    .ppdb-home__card {
+        width: 100%;
+        max-width: 100%;
+        min-width: 0;
+    }
+
+    .ppdb-home__cta {
+        width: 100%;
+        max-width: 100%;
+        padding: 25px;
+    }
+
+}
+
+
+/* =========================================================
+   PREVENT GRID/FLEX OVERFLOW
+   ========================================================= */
+
+.ppdb-home *,
+.ppdb-navbar *,
+.ppdb-site-footer * {
+    min-width: 0;
+}
+
+.ppdb-home .container {
+    min-width: 0;
+}
+
+.ppdb-home__hero-grid > *,
+.ppdb-home__features > *,
+.ppdb-home__cta > * {
+    min-width: 0;
+    max-width: 100%;
+}
+
+
+/* =========================================================
+   TABLE MOBILE
+   ========================================================= */
+
+.table-wrap {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+
+/* =========================================================
+   FORM MOBILE
+   ========================================================= */
+
+input,
+select,
+textarea,
+button {
+    max-width: 100%;
+}
+
+input,
+select,
+textarea {
+    min-width: 0;
+}
+
+
+/* =========================================================
+   EXTRA SAFETY
+   ========================================================= */
+
+section,
+main,
+header,
+footer,
+nav,
+div {
+    max-width: 100%;
+}
+
+@media (max-width: 800px) {
+
+    .ppdb-home img,
+    .ppdb-home svg,
+    .ppdb-home iframe,
+    .ppdb-home video {
+        max-width: 100%;
+    }
+
+}
