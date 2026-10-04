@@ -10,5 +10,5 @@ RUN chown -R www-data:www-data /var/www/html
 
 EXPOSE 80
 
-# DEBUG sementara
-CMD ["sh", "-c", "echo '--- mods-enabled ---'; ls -l /etc/apache2/mods-enabled | grep -i mpm; echo '--- LoadModule mpm ---'; grep -rn 'mpm_' /etc/apache2 --include=*.conf --include=*.load | grep -i LoadModule; echo '--- end ---'; sleep 30; apache2-foreground"]
+# Jaring pengaman: hapus MPM lain tepat sebelum Apache start
+CMD ["sh", "-c", "rm -f /etc/apache2/mods-enabled/mpm_event.* /etc/apache2/mods-enabled/mpm_worker.*; exec apache2-foreground"]
