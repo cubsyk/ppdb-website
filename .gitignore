@@ -1,0 +1,10 @@
+.env
+.env.*
+*.log
+
+/vendor/
+
+.DS_Store
+Thumbs.db
+
+php_errorlog
