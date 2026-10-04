@@ -1,8 +1,11 @@
 FROM php:8.2-apache
 
-# Matikan semua MPM yang aktif, lalu aktifkan hanya prefork
-RUN a2dismod mpm_event mpm_worker mpm_prefork || true \
+# Hapus semua MPM yang aktif, lalu aktifkan hanya prefork
+RUN rm -f /etc/apache2/mods-enabled/mpm_*.load /etc/apache2/mods-enabled/mpm_*.conf \
     && a2enmod mpm_prefork
+
+# (opsional) cek saat build, harus cuma 1 MPM
+RUN apache2ctl -M 2>/dev/null | grep mpm
 
 # Install ekstensi PHP untuk MySQL
 RUN docker-php-ext-install pdo pdo_mysql mysqli
@@ -13,5 +16,4 @@ COPY . /var/www/html/
 # Permission
 RUN chown -R www-data:www-data /var/www/html
 
-# Apache listen di port 80
 EXPOSE 80
