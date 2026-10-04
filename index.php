@@ -18,23 +18,18 @@ require __DIR__ . '/includes/header.php';
 /* =========================================================
    PPDB HOME
    Tema: Rapor & Kartu Pelajar
+   Catatan: warna ditulis langsung (tanpa var(--...)) supaya
+   tidak bergantung pada variabel CSS.
+   Palet:
+   paper #FBF7EF | paper-line #E7DFCE | chalk #2F4538
+   ink #262A20 | muted #6B7060 | coral #E1552E
+   leaf #3F7E52 | leaf-soft #E7F1E4
+   amber #C6820E | amber-soft #FBF0DC
    ========================================================= */
 
 .ppdb-home {
-    --paper: #FBF7EF;
-    --paper-line: #E7DFCE;
-    --chalk: #2F4538;
-    --chalk-soft: #3E5A48;
-    --ink: #262A20;
-    --muted: #6B7060;
-    --coral: #E1552E;
-    --leaf: #3F7E52;
-    --leaf-soft: #E7F1E4;
-    --amber: #C6820E;
-    --amber-soft: #FBF0DC;
-
     font-family: 'Inter', system-ui, sans-serif;
-    color: var(--ink);
+    color: #262A20;
     overflow: hidden;
 }
 
@@ -53,7 +48,10 @@ require __DIR__ . '/includes/header.php';
 /* ---------- Hero ---------- */
 
 .ppdb-home__hero {
-    min-height: calc(100vh - 76px);
+    position: relative;
+    background: #FBF7EF;
+    border-bottom: 1px solid #E7DFCE;
+    min-height: calc(100vh - 107px);
     padding: 60px 0;
     box-sizing: border-box;
     display: flex;
@@ -70,6 +68,7 @@ require __DIR__ . '/includes/header.php';
     right: -100px;
     top: -100px;
     opacity: .7;
+    pointer-events: none;
 }
 
 .ppdb-home__hero::after {
@@ -82,6 +81,7 @@ require __DIR__ . '/includes/header.php';
     right: -45px;
     top: -45px;
     opacity: .7;
+    pointer-events: none;
 }
 
 .ppdb-home__hero-grid {
@@ -91,8 +91,6 @@ require __DIR__ . '/includes/header.php';
     align-items: center;
     position: relative;
     z-index: 1;
-
-    /* Batasi lebar isi hero agar tidak memenuhi seluruh layar */
     width: min(1120px, calc(100% - 48px));
     margin: 0 auto;
 }
@@ -101,7 +99,7 @@ require __DIR__ . '/includes/header.php';
     display: inline-flex;
     align-items: center;
     gap: 9px;
-    color: var(--leaf);
+    color: #3F7E52;
     font-size: 13px;
     font-weight: 700;
     letter-spacing: .08em;
@@ -113,12 +111,12 @@ require __DIR__ . '/includes/header.php';
     content: '';
     width: 28px;
     height: 2px;
-    background: var(--coral);
+    background: #E1552E;
     display: inline-block;
 }
 
 .ppdb-home__hero h1 {
-    color: var(--chalk);
+    color: #2F4538;
     font-size: clamp(38px, 5vw, 64px);
     line-height: 1.06;
     max-width: 760px;
@@ -126,12 +124,12 @@ require __DIR__ . '/includes/header.php';
 }
 
 .ppdb-home__hero h1 span {
-    color: var(--coral);
+    color: #E1552E;
 }
 
 .ppdb-home__lead {
     max-width: 650px;
-    color: var(--muted);
+    color: #6B7060;
     font-size: 16px;
     margin: 0 0 28px;
 }
@@ -145,13 +143,15 @@ require __DIR__ . '/includes/header.php';
 }
 
 .ppdb-home__btn {
+    position: relative;
+    overflow: hidden;
     display: inline-flex;
     align-items: center;
     justify-content: center;
     min-height: 46px;
     padding: 0 22px;
     border-radius: 10px;
-    background: var(--coral);
+    background: #E1552E;
     color: #fff;
     text-decoration: none;
     font-size: 14.5px;
@@ -164,10 +164,31 @@ require __DIR__ . '/includes/header.php';
     box-shadow: 0 8px 20px rgba(225, 85, 46, .18);
 }
 
+.ppdb-home__btn::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -120%;
+    width: 70%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255,255,255,.25),
+        transparent
+    );
+    transform: skewX(-18deg);
+    transition: left .55s ease;
+}
+
+.ppdb-home__btn:hover::after {
+    left: 140%;
+}
+
 .ppdb-home__btn--outline {
     background: transparent;
-    color: var(--chalk);
-    border: 1.5px solid var(--paper-line);
+    color: #2F4538;
+    border: 1.5px solid #E7DFCE;
 }
 
 .ppdb-home__btn--outline:hover {
@@ -178,7 +199,7 @@ require __DIR__ . '/includes/header.php';
 /* ---------- Info Card ---------- */
 
 .ppdb-home__info {
-    background: var(--chalk);
+    background: #2F4538;
     color: #F3F0E6;
     border-radius: 18px;
     padding: 28px;
@@ -207,6 +228,7 @@ require __DIR__ . '/includes/header.php';
 }
 
 .ppdb-home__info h2 {
+    color: #F3F0E6;
     font-size: 24px;
     margin: 0 0 22px;
 }
@@ -224,10 +246,15 @@ require __DIR__ . '/includes/header.php';
     padding: 13px 0;
     border-top: 1px solid rgba(255,255,255,.12);
     font-size: 13.5px;
+    transition: padding-left .25s ease;
 }
 
 .ppdb-home__schedule li:last-child {
     border-bottom: 1px solid rgba(255,255,255,.12);
+}
+
+.ppdb-home__schedule li:hover {
+    padding-left: 6px;
 }
 
 .ppdb-home__schedule span {
@@ -244,6 +271,12 @@ require __DIR__ . '/includes/header.php';
     padding: 14px 16px;
     background: rgba(255,255,255,.08);
     border-radius: 10px;
+    transition: transform .25s ease, background .25s ease;
+}
+
+.ppdb-home__count:hover {
+    transform: translateY(-2px);
+    background: rgba(255,255,255,.12);
 }
 
 .ppdb-home__count small {
@@ -254,20 +287,15 @@ require __DIR__ . '/includes/header.php';
 }
 
 .ppdb-home__count strong {
+    color: #fff;
     font-family: 'Fraunces', Georgia, serif;
     font-size: 27px;
 }
 
-/* ---------- Intro ---------- */
+/* ---------- Section ---------- */
 
 .ppdb-home__section {
     padding: 68px 0;
-}
-
-.ppdb-home__section--paper {
-    background: var(--paper);
-    border-top: 1px solid var(--paper-line);
-    border-bottom: 1px solid var(--paper-line);
 }
 
 .ppdb-home__section-head {
@@ -276,13 +304,13 @@ require __DIR__ . '/includes/header.php';
 }
 
 .ppdb-home__section-head h2 {
-    color: var(--chalk);
+    color: #2F4538;
     font-size: clamp(28px, 4vw, 39px);
     margin: 0 0 10px;
 }
 
 .ppdb-home__section-head p {
-    color: var(--muted);
+    color: #6B7060;
     font-size: 15px;
     margin: 0;
 }
@@ -297,16 +325,22 @@ require __DIR__ . '/includes/header.php';
 
 .ppdb-home__card {
     background: #fff;
-    border: 1px solid var(--paper-line);
+    border: 1px solid #E7DFCE;
     border-radius: 14px;
     padding: 25px;
     position: relative;
-    transition: transform .18s ease, box-shadow .18s ease;
+    transition:
+        transform .28s cubic-bezier(.2, .8, .2, 1),
+        box-shadow .28s ease;
 }
 
 .ppdb-home__card:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 30px rgba(47, 69, 56, .07);
+    transform: translateY(-7px) rotate(-.35deg);
+    box-shadow: 0 16px 34px rgba(47, 69, 56, .10);
+}
+
+.ppdb-home__card:nth-child(2):hover {
+    transform: translateY(-7px) rotate(.35deg);
 }
 
 .ppdb-home__number {
@@ -317,18 +351,30 @@ require __DIR__ . '/includes/header.php';
     font-size: 28px;
     color: #E9E1D2;
     font-weight: 700;
+    transition: transform .3s ease, color .3s ease;
+}
+
+.ppdb-home__card:hover .ppdb-home__number {
+    transform: translateY(-3px);
+    color: #D9CFBD;
 }
 
 .ppdb-home__card-icon {
     width: 44px;
     height: 44px;
     border-radius: 11px;
-    background: var(--leaf-soft);
-    color: var(--leaf);
+    background: #E7F1E4;
+    color: #3F7E52;
     display: flex;
     align-items: center;
     justify-content: center;
     margin-bottom: 18px;
+    transition: transform .3s ease, border-radius .3s ease;
+}
+
+.ppdb-home__card:hover .ppdb-home__card-icon {
+    transform: rotate(-4deg) scale(1.06);
+    border-radius: 14px;
 }
 
 .ppdb-home__card-icon svg {
@@ -342,23 +388,23 @@ require __DIR__ . '/includes/header.php';
 }
 
 .ppdb-home__card:nth-child(2) .ppdb-home__card-icon {
-    background: var(--amber-soft);
-    color: var(--amber);
+    background: #FBF0DC;
+    color: #C6820E;
 }
 
 .ppdb-home__card:nth-child(3) .ppdb-home__card-icon {
     background: #F8E7E4;
-    color: var(--coral);
+    color: #E1552E;
 }
 
 .ppdb-home__card h3 {
-    color: var(--chalk);
+    color: #2F4538;
     font-size: 19px;
     margin: 0 0 8px;
 }
 
 .ppdb-home__card p {
-    color: var(--muted);
+    color: #6B7060;
     font-size: 14px;
     margin: 0;
 }
@@ -366,14 +412,40 @@ require __DIR__ . '/includes/header.php';
 /* ---------- Bottom CTA ---------- */
 
 .ppdb-home__cta {
+    position: relative;
+    overflow: hidden;
     margin-top: 16px;
-    background: var(--chalk);
+    background: #2F4538;
     border-radius: 16px;
     padding: 32px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     gap: 25px;
+}
+
+.ppdb-home__cta::before {
+    content: '';
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    border: 1px solid rgba(255,255,255,.07);
+    border-radius: 50%;
+    right: -65px;
+    top: -90px;
+    pointer-events: none;
+}
+
+.ppdb-home__cta::after {
+    content: '';
+    position: absolute;
+    width: 110px;
+    height: 110px;
+    border: 1px solid rgba(255,255,255,.05);
+    border-radius: 50%;
+    right: 35px;
+    top: -55px;
+    pointer-events: none;
 }
 
 .ppdb-home__cta h2 {
@@ -389,6 +461,8 @@ require __DIR__ . '/includes/header.php';
 }
 
 .ppdb-home__cta .ppdb-home__btn {
+    position: relative;
+    z-index: 1;
     flex-shrink: 0;
 }
 
@@ -482,9 +556,23 @@ require __DIR__ . '/includes/header.php';
     transform: translateX(0);
 }
 
+/* Kartu fitur: pakai transisi sendiri agar hover tetap halus setelah reveal */
+.ppdb-home .ppdb-home__card[data-reveal] {
+    transition:
+        opacity .7s ease,
+        transform .7s cubic-bezier(.2, .8, .2, 1),
+        box-shadow .28s ease;
+}
 
-/* ---------- Hero decoration ---------- */
+.ppdb-home .ppdb-home__card[data-reveal].is-visible:hover {
+    transform: translateY(-7px) rotate(-.35deg);
+}
 
+.ppdb-home .ppdb-home__card:nth-child(2)[data-reveal].is-visible:hover {
+    transform: translateY(-7px) rotate(.35deg);
+}
+
+/* Hero decoration */
 .ppdb-home__hero::before {
     animation: ppdbCircleFloat 8s ease-in-out infinite;
 }
@@ -494,206 +582,27 @@ require __DIR__ . '/includes/header.php';
 }
 
 @keyframes ppdbCircleFloat {
-    0%, 100% {
-        transform: translate(0, 0);
-    }
-
-    50% {
-        transform: translate(-12px, 14px);
-    }
+    0%, 100% { transform: translate(0, 0); }
+    50%      { transform: translate(-12px, 14px); }
 }
 
-
-/* ---------- Hero text ---------- */
-
+/* Hero text */
 .ppdb-home__hero-content {
     animation: ppdbHeroText .8s cubic-bezier(.2, .8, .2, 1) both;
 }
 
 @keyframes ppdbHeroText {
-    from {
-        opacity: 0;
-        transform: translateY(22px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(22px); }
+    to   { opacity: 1; transform: translateY(0); }
 }
 
+/* Stagger */
+.ppdb-home [data-delay="1"] { transition-delay: .08s; }
+.ppdb-home [data-delay="2"] { transition-delay: .16s; }
+.ppdb-home [data-delay="3"] { transition-delay: .24s; }
+.ppdb-home [data-delay="4"] { transition-delay: .32s; }
 
-/* ---------- PPDB Info Card ---------- */
-
-.ppdb-home__info {
-    animation: ppdbInfoIn .85s .12s cubic-bezier(.2, .8, .2, 1) both;
-}
-
-@keyframes ppdbInfoIn {
-    from {
-        opacity: 0;
-        transform: translateY(26px) rotate(1deg);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0) rotate(0);
-    }
-}
-
-
-/* ---------- Buttons ---------- */
-
-.ppdb-home__btn {
-    position: relative;
-    overflow: hidden;
-}
-
-.ppdb-home__btn::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -120%;
-    width: 70%;
-    height: 100%;
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255,255,255,.25),
-        transparent
-    );
-    transform: skewX(-18deg);
-    transition: left .55s ease;
-}
-
-.ppdb-home__btn:hover::after {
-    left: 140%;
-}
-
-
-/* ---------- Feature Cards ---------- */
-
-.ppdb-home__card {
-    transition:
-        transform .28s cubic-bezier(.2, .8, .2, 1),
-        box-shadow .28s ease;
-}
-
-.ppdb-home__card:hover {
-    transform: translateY(-7px) rotate(-.35deg);
-    box-shadow: 0 16px 34px rgba(47, 69, 56, .10);
-}
-
-.ppdb-home__card:nth-child(2):hover {
-    transform: translateY(-7px) rotate(.35deg);
-}
-
-.ppdb-home__card-icon {
-    transition:
-        transform .3s ease,
-        border-radius .3s ease;
-}
-
-.ppdb-home__card:hover .ppdb-home__card-icon {
-    transform: rotate(-4deg) scale(1.06);
-    border-radius: 14px;
-}
-
-
-/* ---------- Number ---------- */
-
-.ppdb-home__number {
-    transition:
-        transform .3s ease,
-        color .3s ease;
-}
-
-.ppdb-home__card:hover .ppdb-home__number {
-    transform: translateY(-3px);
-    color: #D9CFBD;
-}
-
-
-/* ---------- Schedule ---------- */
-
-.ppdb-home__schedule li {
-    transition:
-        padding-left .25s ease,
-        background .25s ease;
-}
-
-.ppdb-home__schedule li:hover {
-    padding-left: 6px;
-}
-
-
-/* ---------- Count ---------- */
-
-.ppdb-home__count {
-    transition:
-        transform .25s ease,
-        background .25s ease;
-}
-
-.ppdb-home__count:hover {
-    transform: translateY(-2px);
-    background: rgba(255,255,255,.12);
-}
-
-
-/* ---------- CTA ---------- */
-
-.ppdb-home__cta {
-    position: relative;
-    overflow: hidden;
-}
-
-.ppdb-home__cta::before {
-    content: '';
-    position: absolute;
-    width: 180px;
-    height: 180px;
-    border: 1px solid rgba(255,255,255,.07);
-    border-radius: 50%;
-    right: -65px;
-    top: -90px;
-    pointer-events: none;
-}
-
-.ppdb-home__cta::after {
-    content: '';
-    position: absolute;
-    width: 110px;
-    height: 110px;
-    border: 1px solid rgba(255,255,255,.05);
-    border-radius: 50%;
-    right: 35px;
-    top: -55px;
-    pointer-events: none;
-}
-
-
-/* ---------- Stagger ---------- */
-
-.ppdb-home [data-delay="1"] {
-    transition-delay: .08s;
-}
-
-.ppdb-home [data-delay="2"] {
-    transition-delay: .16s;
-}
-
-.ppdb-home [data-delay="3"] {
-    transition-delay: .24s;
-}
-
-.ppdb-home [data-delay="4"] {
-    transition-delay: .32s;
-}
-
-
-/* ---------- Accessibility ---------- */
-
+/* Accessibility */
 @media (prefers-reduced-motion: reduce) {
     .ppdb-home *,
     .ppdb-home *::before,
@@ -708,17 +617,10 @@ require __DIR__ . '/includes/header.php';
         transform: none;
     }
 }
-
-.ppdb-home__hero {
-    min-height: calc(100vh - 76px);
-    box-sizing: border-box;
-    display: flex;
-    align-items: center;
-}
-
 </style>
 
-<main class="ppdb-home">
+<!-- Pakai <div>, bukan <main>, karena header.php sudah membuka <main> -->
+<div class="ppdb-home">
 
     <!-- HERO -->
     <section class="ppdb-home__hero">
@@ -886,19 +788,14 @@ require __DIR__ . '/includes/header.php';
 
     </section>
 
-</main>
+</div>
 
 <script>
 document.addEventListener('DOMContentLoaded', () => {
-    const revealItems = document.querySelectorAll(
-        '.ppdb-home [data-reveal]'
-    );
+    const revealItems = document.querySelectorAll('.ppdb-home [data-reveal]');
 
     if (!('IntersectionObserver' in window)) {
-        revealItems.forEach(item => {
-            item.classList.add('is-visible');
-        });
-
+        revealItems.forEach(item => item.classList.add('is-visible'));
         return;
     }
 
@@ -917,9 +814,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     );
 
-    revealItems.forEach(item => {
-        revealObserver.observe(item);
-    });
+    revealItems.forEach(item => revealObserver.observe(item));
 });
 </script>
 

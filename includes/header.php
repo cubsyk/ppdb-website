@@ -284,12 +284,12 @@ $base = $cssBase ?? '';
 
                 <?php else: ?>
 
-                    <a
-                        class="<?= $activePage === 'login' ? 'active' : ''; ?>"
-                        href="<?= $base ?>login.php"
-                    >
-                        Login
-                    </a>
+                <a
+                    class="ppdb-nav-register <?= $activePage === 'login' ? 'active' : ''; ?>"
+                    href="<?= $base ?>login.php"
+                >
+                    Login
+                </a>
 
                     <a
                         class="ppdb-nav-register <?= $activePage === 'daftar' ? 'active' : ''; ?>"
