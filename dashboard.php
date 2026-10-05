@@ -521,19 +521,12 @@ require __DIR__ . '/includes/header.php';
         </div>
     <?php endif; ?>
 
-    <?php if ($status === 'diterima' && (!$pembayaran || $pembayaran['status'] !== 'dikonfirmasi')): ?>
+    <?php if ($status === 'diterima'): ?>
         <div class="ppdb-cta">
             <svg class="icon" viewBox="0 0 24 24"><?= ppdb_icon('star') ?></svg>
             <h3>Selamat, Anda diterima</h3>
-            <p>Segera lakukan daftar ulang setelah pembayaran dikonfirmasi admin.</p>
-            <?php if ($pembayaran && $pembayaran['status'] === 'dikonfirmasi'): ?>
-                <a class="ppdb-btn" href="daftar-ulang.php">Lakukan Daftar Ulang</a>
-            <?php else: ?>
-                <span class="ppdb-waiting">
-                    <svg class="icon" viewBox="0 0 24 24"><?= ppdb_icon('clock') ?></svg>
-                    Menunggu konfirmasi pembayaran
-                </span>
-            <?php endif; ?>
+            <p>Silakan lanjutkan ke daftar ulang.</p>
+            <a class="ppdb-btn" href="daftar-ulang.php">Lakukan Daftar Ulang</a>
         </div>
     <?php endif; ?>
 
