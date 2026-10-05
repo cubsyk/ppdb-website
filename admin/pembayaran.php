@@ -120,7 +120,8 @@ require __DIR__ . '/../includes/header.php';
 ?>
 
 <style>
-    .ppdb-payment-page {
+    .ppdb-payment-page,
+    .payment-modal {
         --paper: #FBF7EF;
         --paper-line: #E7DFCE;
 
