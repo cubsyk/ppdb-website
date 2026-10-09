@@ -235,7 +235,7 @@ require __DIR__ . '/includes/header.php';
     padding: 30px 32px; flex-wrap: wrap;
 }
 .ppdb-hero__field-label { font-size: 13px; color: #C9D3C9; margin: 0 0 6px; }
-.ppdb-hero__id { font-size: 32px; margin: 0; line-height: 1.1; }
+.ppdb-hero__id { font-size: 32px; color:#ffffff; margin: 0; line-height: 1.1; }
 .ppdb-hero__student { margin: 10px 0 0; font-size: 15px; color: #DCE3D8; }
 .ppdb-hero__student strong { color: #fff; font-weight: 600; }
 

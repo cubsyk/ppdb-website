@@ -128,7 +128,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     ];
 
 
-    $program = post('program');
+    $kelompok = post('kelompok');
 
 
     /* =====================================================
@@ -197,17 +197,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
     /* =====================================================
-       VALIDASI PROGRAM
+       VALIDASI kelompok
        ===================================================== */
 
-    $programs = [
+    $kelompoks = [
         'Kelompok A',
         'Kelompok B',
         'Daycare Ceria'
     ];
 
-    if (!in_array($program, $programs, true)) {
-        $errors[] = 'Program pendaftaran wajib dipilih.';
+    if (!in_array($kelompok, $kelompoks, true)) {
+        $errors[] = 'kelompok pendaftaran wajib dipilih.';
     }
 
 
@@ -421,15 +421,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
         /* -------------------------------------------------
-           PROGRAM PENDAFTARAN
+           kelompok PENDAFTARAN
            ------------------------------------------------- */
 
         $pdo->prepare(
             'UPDATE pendaftaran
-             SET program=?
+             SET kelompok=?
              WHERE id=?'
         )->execute([
-            $program,
+            $kelompok,
             $pid
         ]);
 
@@ -970,10 +970,10 @@ require __DIR__ . '/includes/header.php';
 
 
 /* =========================================================
-   PROGRAM
+   kelompok
    ========================================================= */
 
-.ppdb-form-page__program {
+.ppdb-form-page__kelompok {
 
     margin-top: 4px;
 
@@ -986,7 +986,7 @@ require __DIR__ . '/includes/header.php';
     border-radius: 12px;
 }
 
-.ppdb-form-page__program-label {
+.ppdb-form-page__kelompok-label {
 
     margin: 0 0 9px;
 
@@ -997,14 +997,14 @@ require __DIR__ . '/includes/header.php';
     font-weight: 700;
 }
 
-.ppdb-form-page__program-label small {
+.ppdb-form-page__kelompok-label small {
 
     color: var(--muted);
 
     font-weight: 400;
 }
 
-.ppdb-form-page__program select {
+.ppdb-form-page__kelompok select {
 
     width: 100%;
 
@@ -2313,7 +2313,7 @@ require __DIR__ . '/includes/header.php';
 
 
                 <!-- =================================================
-                     03. PROGRAM
+                     03. KELOMPOK
                      ================================================= -->
 
                 <section class="ppdb-form-page__section">
@@ -2326,10 +2326,10 @@ require __DIR__ . '/includes/header.php';
 
                         <div>
 
-                            <h2>Program Pendaftaran</h2>
+                            <h2>Kelompok Pendaftaran</h2>
 
                             <p>
-                                Pilih program yang akan diikuti peserta didik.
+                                Pilih kelompok yang akan diikuti peserta didik.
                             </p>
 
                         </div>
@@ -2337,11 +2337,11 @@ require __DIR__ . '/includes/header.php';
                     </div>
 
 
-                    <div class="ppdb-form-page__program">
+                    <div class="ppdb-form-page__kelompok">
 
-                        <p class="ppdb-form-page__program-label">
+                        <p class="ppdb-form-page__kelompok-label">
 
-                            Program pilihan
+                            Kelompok pilihan
 
                             <small>
                                 * wajib dipilih
@@ -2350,25 +2350,24 @@ require __DIR__ . '/includes/header.php';
                         </p>
 
 
-                        <select name="program" required>
+                        <select name="kelompok" required>
 
                             <option value="">
-                                Pilih program
+                                Pilih kelompok
                             </option>
 
                             <?php
-                            $programList = [
+                            $kelompokList = [
                                 'Kelompok A',
                                 'Kelompok B',
-                                'Daycare Ceria'
                             ];
                             ?>
 
-                            <?php foreach ($programList as $pr): ?>
+                            <?php foreach ($kelompokList as $pr): ?>
 
                                 <option
                                     value="<?= e($pr) ?>"
-                                    <?= $p('program', $pendaftaran) === $pr ? 'selected' : '' ?>
+                                    <?= $p('kelompok', $pendaftaran) === $pr ? 'selected' : '' ?>
                                 >
                                     <?= e($pr) ?>
                                 </option>
@@ -2499,7 +2498,7 @@ require __DIR__ . '/includes/header.php';
                                 ✓
                             </span>
 
-                            Pilih program pendaftaran yang sesuai.
+                            Pilih kelompok pendaftaran yang sesuai.
 
                         </li>
 

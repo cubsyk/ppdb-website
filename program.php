@@ -1,16 +1,16 @@
 <?php
-$pageTitle = 'Program - TK Harapan Bunda';
-$activePage = 'program';
+$pageTitle = 'kelompok - TK Harapan Bunda';
+$activePage = 'kelompok';
 require __DIR__ . '/includes/header.php';
 ?>
 
 <style>
 /* =========================================================
-   PPDB PROGRAM
+   PPDB kelompok
    Tema: Rapor & Kartu Pelajar
    ========================================================= */
 
-.ppdb-program {
+.ppdb-kelompok {
     --paper: #FBF7EF;
     --paper-line: #E7DFCE;
     --chalk: #2F4538;
@@ -29,21 +29,21 @@ require __DIR__ . '/includes/header.php';
     color: var(--ink);
 }
 
-.ppdb-program h1,
-.ppdb-program h2,
-.ppdb-program h3 {
+.ppdb-kelompok h1,
+.ppdb-kelompok h2,
+.ppdb-kelompok h3 {
     font-family: 'Fraunces', Georgia, serif;
     font-weight: 600;
     letter-spacing: -0.015em;
 }
 
-.ppdb-program p {
+.ppdb-kelompok p {
     line-height: 1.7;
 }
 
 /* ---------- Header ---------- */
 
-.ppdb-program__header {
+.ppdb-kelompok__header {
     background: var(--paper);
     border-bottom: 1px solid var(--paper-line);
     padding: 58px 0;
@@ -51,8 +51,8 @@ require __DIR__ . '/includes/header.php';
     overflow: hidden;
 }
 
-.ppdb-program__header::after {
-    content: 'PROGRAM';
+.ppdb-kelompok__header::after {
+    content: 'kelompok';
     position: absolute;
     right: -15px;
     bottom: -22px;
@@ -63,7 +63,7 @@ require __DIR__ . '/includes/header.php';
     pointer-events: none;
 }
 
-.ppdb-program__eyebrow {
+.ppdb-kelompok__eyebrow {
     display: flex;
     align-items: center;
     gap: 9px;
@@ -77,14 +77,14 @@ require __DIR__ . '/includes/header.php';
     z-index: 1;
 }
 
-.ppdb-program__eyebrow::before {
+.ppdb-kelompok__eyebrow::before {
     content: '';
     width: 27px;
     height: 2px;
     background: var(--coral);
 }
 
-.ppdb-program__header h1 {
+.ppdb-kelompok__header h1 {
     color: var(--chalk);
     font-size: clamp(36px, 5vw, 52px);
     margin: 0 0 9px;
@@ -92,7 +92,7 @@ require __DIR__ . '/includes/header.php';
     z-index: 1;
 }
 
-.ppdb-program__header p:last-child {
+.ppdb-kelompok__header p:last-child {
     color: var(--muted);
     margin: 0;
     font-size: 15px;
@@ -102,16 +102,16 @@ require __DIR__ . '/includes/header.php';
 
 /* ---------- Main Section ---------- */
 
-.ppdb-program__section {
+.ppdb-kelompok__section {
     padding: 58px 0;
 }
 
-.ppdb-program__intro {
+.ppdb-kelompok__intro {
     max-width: 680px;
     margin-bottom: 27px;
 }
 
-.ppdb-program__intro-label {
+.ppdb-kelompok__intro-label {
     color: var(--coral);
     font-size: 12px;
     font-weight: 700;
@@ -120,27 +120,27 @@ require __DIR__ . '/includes/header.php';
     margin: 0 0 7px;
 }
 
-.ppdb-program__intro h2 {
+.ppdb-kelompok__intro h2 {
     color: var(--chalk);
     font-size: 31px;
     margin: 0 0 9px;
 }
 
-.ppdb-program__intro p:last-child {
+.ppdb-kelompok__intro p:last-child {
     color: var(--muted);
     font-size: 14.5px;
     margin: 0;
 }
 
-/* ---------- Program Cards ---------- */
+/* ---------- kelompok Cards ---------- */
 
-.ppdb-program__cards {
+.ppdb-kelompok__cards {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 16px;
 }
 
-.ppdb-program__card {
+.ppdb-kelompok__card {
     background: #fff;
     border: 1px solid var(--paper-line);
     border-radius: 16px;
@@ -149,7 +149,7 @@ require __DIR__ . '/includes/header.php';
     overflow: hidden;
 }
 
-.ppdb-program__card::after {
+.ppdb-kelompok__card::after {
     content: '';
     position: absolute;
     right: -32px;
@@ -160,19 +160,15 @@ require __DIR__ . '/includes/header.php';
     border-radius: 50%;
 }
 
-.ppdb-program__card--a {
+.ppdb-kelompok__card--a {
     border-top: 4px solid var(--leaf);
 }
 
-.ppdb-program__card--b {
+.ppdb-kelompok__card--b {
     border-top: 4px solid var(--amber);
 }
 
-.ppdb-program__card--daycare {
-    border-top: 4px solid var(--coral);
-}
-
-.ppdb-program__card-number {
+.ppdb-kelompok__card-number {
     font-family: 'Fraunces', Georgia, serif;
     color: #DCD4C5;
     font-size: 15px;
@@ -180,7 +176,7 @@ require __DIR__ . '/includes/header.php';
     margin-bottom: 17px;
 }
 
-.ppdb-program__card h3 {
+.ppdb-kelompok__card h3 {
     color: var(--chalk);
     font-size: 25px;
     margin: 0 0 5px;
@@ -188,7 +184,7 @@ require __DIR__ . '/includes/header.php';
     z-index: 1;
 }
 
-.ppdb-program__age {
+.ppdb-kelompok__age {
     display: inline-block;
     padding: 5px 9px;
     border-radius: 6px;
@@ -199,17 +195,12 @@ require __DIR__ . '/includes/header.php';
     margin-bottom: 17px;
 }
 
-.ppdb-program__card--b .ppdb-program__age {
+.ppdb-kelompok__card--b .ppdb-kelompok__age {
     background: var(--amber-soft);
     color: #8A5C0A;
 }
 
-.ppdb-program__card--daycare .ppdb-program__age {
-    background: var(--berry-soft);
-    color: var(--berry);
-}
-
-.ppdb-program__card p:last-child {
+.ppdb-kelompok__card p:last-child {
     color: var(--muted);
     font-size: 14px;
     margin: 0;
@@ -219,34 +210,34 @@ require __DIR__ . '/includes/header.php';
 
 /* ---------- Schedule ---------- */
 
-.ppdb-program__schedule {
+.ppdb-kelompok__schedule {
     background: var(--paper);
     border-top: 1px solid var(--paper-line);
     border-bottom: 1px solid var(--paper-line);
     padding: 58px 0;
 }
 
-.ppdb-program__schedule-grid {
+.ppdb-kelompok__schedule-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 16px;
 }
 
-.ppdb-program__schedule-card {
+.ppdb-kelompok__schedule-card {
     background: #fff;
     border: 1px solid var(--paper-line);
     border-radius: 15px;
     padding: 28px;
 }
 
-.ppdb-program__schedule-heading {
+.ppdb-kelompok__schedule-heading {
     display: flex;
     align-items: center;
     gap: 13px;
     margin-bottom: 21px;
 }
 
-.ppdb-program__schedule-icon {
+.ppdb-kelompok__schedule-icon {
     width: 43px;
     height: 43px;
     border-radius: 10px;
@@ -258,12 +249,12 @@ require __DIR__ . '/includes/header.php';
     flex-shrink: 0;
 }
 
-.ppdb-program__schedule-icon--amber {
+.ppdb-kelompok__schedule-icon--amber {
     background: var(--amber-soft);
     color: var(--amber);
 }
 
-.ppdb-program__schedule-icon svg {
+.ppdb-kelompok__schedule-icon svg {
     width: 21px;
     height: 21px;
     fill: none;
@@ -273,19 +264,19 @@ require __DIR__ . '/includes/header.php';
     stroke-linejoin: round;
 }
 
-.ppdb-program__schedule-heading h2 {
+.ppdb-kelompok__schedule-heading h2 {
     color: var(--chalk);
     font-size: 21px;
     margin: 0;
 }
 
-.ppdb-program__activities {
+.ppdb-kelompok__activities {
     list-style: none;
     margin: 0;
     padding: 0;
 }
 
-.ppdb-program__activities li {
+.ppdb-kelompok__activities li {
     display: flex;
     align-items: center;
     gap: 11px;
@@ -295,16 +286,16 @@ require __DIR__ . '/includes/header.php';
     font-size: 14px;
 }
 
-.ppdb-program__activities li:first-child {
+.ppdb-kelompok__activities li:first-child {
     border-top: none;
     padding-top: 0;
 }
 
-.ppdb-program__activities li:last-child {
+.ppdb-kelompok__activities li:last-child {
     padding-bottom: 0;
 }
 
-.ppdb-program__check {
+.ppdb-kelompok__check {
     width: 22px;
     height: 22px;
     border-radius: 50%;
@@ -320,29 +311,29 @@ require __DIR__ . '/includes/header.php';
 
 /* ---------- Time Table ---------- */
 
-.ppdb-program__times {
+.ppdb-kelompok__times {
     width: 100%;
     border-collapse: collapse;
 }
 
-.ppdb-program__times tr {
+.ppdb-kelompok__times tr {
     border-top: 1px solid var(--paper-line);
 }
 
-.ppdb-program__times tr:first-child {
+.ppdb-kelompok__times tr:first-child {
     border-top: none;
 }
 
-.ppdb-program__times td {
+.ppdb-kelompok__times td {
     padding: 13px 0;
     font-size: 14px;
 }
 
-.ppdb-program__times td:first-child {
+.ppdb-kelompok__times td:first-child {
     color: var(--muted);
 }
 
-.ppdb-program__times td:last-child {
+.ppdb-kelompok__times td:last-child {
     color: var(--chalk);
     font-weight: 700;
     text-align: right;
@@ -350,7 +341,7 @@ require __DIR__ . '/includes/header.php';
 
 /* ---------- Closing ---------- */
 
-.ppdb-program__closing {
+.ppdb-kelompok__closing {
     margin-top: 16px;
     background: var(--chalk);
     border-radius: 16px;
@@ -361,19 +352,19 @@ require __DIR__ . '/includes/header.php';
     gap: 25px;
 }
 
-.ppdb-program__closing h2 {
+.ppdb-kelompok__closing h2 {
     color: #F3F0E6;
     font-size: 24px;
     margin: 0 0 5px;
 }
 
-.ppdb-program__closing p {
+.ppdb-kelompok__closing p {
     color: #C9D3C9;
     font-size: 14px;
     margin: 0;
 }
 
-.ppdb-program__closing-badge {
+.ppdb-kelompok__closing-badge {
     display: inline-flex;
     align-items: center;
     gap: 8px;
@@ -390,53 +381,53 @@ require __DIR__ . '/includes/header.php';
 /* ---------- Responsive ---------- */
 
 @media (max-width: 800px) {
-    .ppdb-program__cards,
-    .ppdb-program__schedule-grid {
+    .ppdb-kelompok__cards,
+    .ppdb-kelompok__schedule-grid {
         grid-template-columns: 1fr;
     }
 
-    .ppdb-program__header {
+    .ppdb-kelompok__header {
         padding: 48px 0;
     }
 }
 
 @media (max-width: 520px) {
-    .ppdb-program__section,
-    .ppdb-program__schedule {
+    .ppdb-kelompok__section,
+    .ppdb-kelompok__schedule {
         padding: 45px 0;
     }
 
-    .ppdb-program__card,
-    .ppdb-program__schedule-card {
+    .ppdb-kelompok__card,
+    .ppdb-kelompok__schedule-card {
         padding: 23px;
     }
 
-    .ppdb-program__closing {
+    .ppdb-kelompok__closing {
         padding: 24px;
         align-items: flex-start;
         flex-direction: column;
     }
 
-    .ppdb-program__closing-badge {
+    .ppdb-kelompok__closing-badge {
         white-space: normal;
     }
 }
 </style>
 
-<main class="ppdb-program">
+<main class="ppdb-kelompok">
 
     <!-- PAGE HEADER -->
-    <section class="ppdb-program__header">
+    <section class="ppdb-kelompok__header">
         <div class="container">
 
-            <p class="ppdb-program__eyebrow">
-                Program Pembelajaran
+            <p class="ppdb-kelompok__eyebrow">
+                kelompok Pembelajaran
             </p>
 
-            <h1>Program Belajar</h1>
+            <h1>kelompok Belajar</h1>
 
             <p>
-                Pilihan program yang disusun sesuai usia dan kebutuhan
+                Pilihan kelompok yang disusun sesuai usia dan kebutuhan
                 perkembangan anak.
             </p>
 
@@ -444,13 +435,13 @@ require __DIR__ . '/includes/header.php';
     </section>
 
 
-    <!-- PROGRAM UTAMA -->
-    <section class="container ppdb-program__section">
+    <!-- kelompok UTAMA -->
+    <section class="container ppdb-kelompok__section">
 
-        <div class="ppdb-program__intro">
+        <div class="ppdb-kelompok__intro">
 
-            <p class="ppdb-program__intro-label">
-                Pilihan program
+            <p class="ppdb-kelompok__intro-label">
+                Pilihan kelompok
             </p>
 
             <h2>
@@ -465,16 +456,16 @@ require __DIR__ . '/includes/header.php';
         </div>
 
 
-        <div class="ppdb-program__cards">
+        <div class="ppdb-kelompok__cards">
 
             <!-- KELOMPOK A -->
-            <article class="ppdb-program__card ppdb-program__card--a">
+            <article class="ppdb-kelompok__card ppdb-kelompok__card--a">
 
-                <div class="ppdb-program__card-number">01</div>
+                <div class="ppdb-kelompok__card-number">01</div>
 
                 <h3>Kelompok A</h3>
 
-                <span class="ppdb-program__age">
+                <span class="ppdb-kelompok__age">
                     Usia 4-5 tahun
                 </span>
 
@@ -487,13 +478,13 @@ require __DIR__ . '/includes/header.php';
 
 
             <!-- KELOMPOK B -->
-            <article class="ppdb-program__card ppdb-program__card--b">
+            <article class="ppdb-kelompok__card ppdb-kelompok__card--b">
 
-                <div class="ppdb-program__card-number">02</div>
+                <div class="ppdb-kelompok__card-number">02</div>
 
                 <h3>Kelompok B</h3>
 
-                <span class="ppdb-program__age">
+                <span class="ppdb-kelompok__age">
                     Usia 5-6 tahun
                 </span>
 
@@ -504,43 +495,24 @@ require __DIR__ . '/includes/header.php';
 
             </article>
 
-
-            <!-- DAYCARE -->
-            <article class="ppdb-program__card ppdb-program__card--daycare">
-
-                <div class="ppdb-program__card-number">03</div>
-
-                <h3>Daycare Ceria</h3>
-
-                <span class="ppdb-program__age">
-                    Program tambahan
-                </span>
-
-                <p>
-                    Pendampingan setelah jam belajar dengan kegiatan ringan,
-                    istirahat, makan, dan bermain terarah.
-                </p>
-
-            </article>
-
         </div>
 
     </section>
 
 
     <!-- KEGIATAN & JAM BELAJAR -->
-    <section class="ppdb-program__schedule">
+    <section class="ppdb-kelompok__schedule">
 
         <div class="container">
 
-            <div class="ppdb-program__schedule-grid">
+            <div class="ppdb-kelompok__schedule-grid">
 
                 <!-- KEGIATAN HARIAN -->
-                <article class="ppdb-program__schedule-card">
+                <article class="ppdb-kelompok__schedule-card">
 
-                    <div class="ppdb-program__schedule-heading">
+                    <div class="ppdb-kelompok__schedule-heading">
 
-                        <div class="ppdb-program__schedule-icon">
+                        <div class="ppdb-kelompok__schedule-icon">
                             <svg viewBox="0 0 24 24">
                                 <path d="M4 5h16v15H4z"/>
                                 <path d="M8 3v4"/>
@@ -554,30 +526,30 @@ require __DIR__ . '/includes/header.php';
 
                     </div>
 
-                    <ul class="ppdb-program__activities">
+                    <ul class="ppdb-kelompok__activities">
 
                         <li>
-                            <span class="ppdb-program__check">01</span>
+                            <span class="ppdb-kelompok__check">01</span>
                             Doa dan pembiasaan pagi
                         </li>
 
                         <li>
-                            <span class="ppdb-program__check">02</span>
+                            <span class="ppdb-kelompok__check">02</span>
                             Kegiatan motorik kasar dan halus
                         </li>
 
                         <li>
-                            <span class="ppdb-program__check">03</span>
+                            <span class="ppdb-kelompok__check">03</span>
                             Belajar tema mingguan
                         </li>
 
                         <li>
-                            <span class="ppdb-program__check">04</span>
+                            <span class="ppdb-kelompok__check">04</span>
                             Makan bersama
                         </li>
 
                         <li>
-                            <span class="ppdb-program__check">05</span>
+                            <span class="ppdb-kelompok__check">05</span>
                             Seni, musik, dan bercerita
                         </li>
 
@@ -587,11 +559,11 @@ require __DIR__ . '/includes/header.php';
 
 
                 <!-- JAM BELAJAR -->
-                <article class="ppdb-program__schedule-card">
+                <article class="ppdb-kelompok__schedule-card">
 
-                    <div class="ppdb-program__schedule-heading">
+                    <div class="ppdb-kelompok__schedule-heading">
 
-                        <div class="ppdb-program__schedule-icon ppdb-program__schedule-icon--amber">
+                        <div class="ppdb-kelompok__schedule-icon ppdb-kelompok__schedule-icon--amber">
                             <svg viewBox="0 0 24 24">
                                 <circle cx="12" cy="12" r="9"/>
                                 <path d="M12 7v5l3 2"/>
@@ -602,7 +574,7 @@ require __DIR__ . '/includes/header.php';
 
                     </div>
 
-                    <table class="ppdb-program__times">
+                    <table class="ppdb-kelompok__times">
 
                         <tr>
                             <td>Senin - Kamis</td>
@@ -614,11 +586,6 @@ require __DIR__ . '/includes/header.php';
                             <td>07.30 - 10.00</td>
                         </tr>
 
-                        <tr>
-                            <td>Daycare</td>
-                            <td>10.30 - 15.00</td>
-                        </tr>
-
                     </table>
 
                 </article>
@@ -627,7 +594,7 @@ require __DIR__ . '/includes/header.php';
 
 
             <!-- CLOSING -->
-            <div class="ppdb-program__closing">
+            <div class="ppdb-kelompok__closing">
 
                 <div>
                     <h2>Belajar sambil bermain, tumbuh setiap hari.</h2>
@@ -638,8 +605,8 @@ require __DIR__ . '/includes/header.php';
                     </p>
                 </div>
 
-                <span class="ppdb-program__closing-badge">
-                    Program 2026/2027
+                <span class="ppdb-kelompok__closing-badge">
+                    kelompok 2026/2027
                 </span>
 
             </div>

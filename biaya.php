@@ -364,6 +364,10 @@ require __DIR__ . '/includes/header.php';
     white-space: nowrap;
 }
 
+.ppdb-fee__summary-title {
+    color: #ffffff;
+}
+
 /* ---------- Responsive ---------- */
 
 @media (max-width: 800px) {
@@ -503,7 +507,7 @@ require __DIR__ . '/includes/header.php';
                     Ringkasan
                 </p>
 
-                <h3>Biaya awal</h3>
+                <h3 class="ppdb-fee__summary-title">Biaya awal</h3>
 
                 <div class="ppdb-fee__amount">
                     <strong>Rp2.250.000</strong>

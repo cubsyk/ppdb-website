@@ -176,6 +176,10 @@ require __DIR__ . '/includes/header.php';
     margin: 0 0 5px;
 }
 
+.ppdb-profile__identity-title {
+    color: #ffffff
+}
+
 .ppdb-profile__identity h3 {
     font-size: 25px;
     margin: 0 0 22px;
@@ -459,7 +463,7 @@ require __DIR__ . '/includes/header.php';
                     Kartu identitas
                 </p>
 
-                <h3>Identitas Sekolah</h3>
+                <h3 class="ppdb-profile__identity-title">Identitas Sekolah</h3>
 
                 <div class="ppdb-profile__details">
 
